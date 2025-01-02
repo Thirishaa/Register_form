@@ -9,14 +9,16 @@ function App() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    // Use a function to update formData which makes it more scalable
+    setFormData(prevFormData => ({
+      ...prevFormData,
       [name]: value
-    });
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Form submission logic, typically an API request would go here
     console.log('Form Data Submitted:', formData);
     alert('Registration Successful!');
   };
@@ -26,9 +28,10 @@ function App() {
       <h1>Register Form</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
+            id="username"
             name="username"
             value={formData.username}
             onChange={handleChange}
@@ -36,9 +39,10 @@ function App() {
           />
         </div>
         <div>
-          <label>Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -46,9 +50,10 @@ function App() {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
+            id="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
