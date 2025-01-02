@@ -55,7 +55,7 @@ pipeline {
                 bat """
                 set PATH=%SONAR_SCANNER_PATH%;%PATH%
                 where sonar-scanner || echo "SonarQube scanner not found. Please install it."
-                sonar-scanner -Dsonar.projectKey=sonar-web -Dsonar.login=%SONAR_TOKEN%
+                sonar-scanner -Dsonar.projectKey=register_form -Dsonar.login=%SONAR_TOKEN%
                 """
             }
         }
