@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'nodejs-20.10.0' // Ensure Node.js is installed and configured in Jenkins
+        nodejs 'nodejs_20.10.0' // Ensure Node.js is installed and configured in Jenkins
     }
 
     environment {
